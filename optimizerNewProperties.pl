@@ -1321,6 +1321,7 @@ arg(N) => [rename(feed(rel(Name, Var, Case)), Var), [order(Var:X)]] :-
 
 % Translate selection into distributed selection.
 select(Arg, Y) => X :-
+  write('---> Select Translation'), nl,
   isDistributedQuery,
   !, /* Operand is distributed. Do not translate into local selection. */
   distributedselect(Arg, Y) translatesD X.
@@ -1746,13 +1747,17 @@ assignSizes1 :-
   fail.
 
 assignSize(Source, Target, select(Arg, Pred), Result) :-
+  write('*********** AssignSize SELECT ***********'), nl,
   resSize(Arg, Card),
   selectivity(Pred, Sel),
+  write('-->Nach selectivity:'), write(Sel),nl,
   Size is Card * Sel,
   setNodeSize(Result, Size),
   assert(edgeSelectivity(Source, Target, Sel)).
 
 assignSize(Source, Target, join(Arg1, Arg2, Pred), Result) :-
+  write('*********** AssignSize JOIN ***********'), nl,
+  trace,
   resSize(Arg1, Card1),
   resSize(Arg2, Card2),
   selectivity(Pred, Sel),
@@ -1779,7 +1784,20 @@ Argument ~Arg~ has size ~Size~.
 
 */
 
-resSize(arg(N), Size) :- argument(N, rel(Rel, _, _)), card(Rel, Size), !.
+
+resSize(arg(N), Size) :-
+  isDistributedQuery,
+  !,
+  write('********** In Distributed resSize **********'), nl,
+  argument(N, rel(Rel, X, Y)),
+  distributedRels(rel(Rel, _, _), Rel2, _, _, _),
+  card(Rel2, Size),
+  !.
+
+resSize(arg(N), Size) :- 
+  argument(N, rel(Rel, _, _)), 
+  card(Rel, Size),
+  !.
 resSize(arg(N), _) :- write('Error in optimizer: cannot find cardinality for '),
   argument(N, Rel), wp(Rel), nl, fail.
 resSize(res(N), Size) :- resultSize(N, Size), !.
@@ -2825,7 +2843,10 @@ the functor ~lc~.
 
 callLookup(Query, Query2) :-
   newQuery,
-  lookup(Query, Query2), !.
+  lookup(Query, Query2),
+  write('*********** Queries vor und nach callLookup: ***********'), nl,
+  write(Query), nl,
+  write(Query2), !.
 
 % fapra 2015/16 distributed queries
 
@@ -2911,7 +2932,10 @@ lookupRels([R | Rs], [R2 | R2s]) :-
 
 lookupRels(Rel, Rel2) :-
   not(is_list(Rel)),
-  lookupRel(Rel, Rel2).
+  lookupRel(Rel, Rel2),
+  write('*********** Vor und nach lookupRel:'), nl,
+  write(Rel),
+  write(Rel2).
 
 /*
 ----    lookupRel(Rel, Rel2) :-
@@ -3403,17 +3427,20 @@ We have a duplicate of each non-distributed clause which treats the distributed 
 */
 
 queryToPlan(Query, consume(dsummarize(Stream)), Cost) :-
+  write('---> QueryToPlan 1:'), nl,
   selectClause(Query, *),
   isDistributedQuery,
   !,
   translate(Query, Stream, select *, Cost).
 
 queryToPlan(Query, consume(Stream), Cost) :-
+write('---> QueryToPlan 2:'), nl,
   selectClause(Query, *),
   !,
   translate(Query, Stream, select *, Cost).
 
 queryToPlan(Query, count(dsummarize(Stream)), Cost) :-
+write('---> QueryToPlan 3:'), nl,
   selectClause(Query, count(*)),
   isDistributedQuery,
   !,
