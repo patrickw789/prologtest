@@ -1,0 +1,55 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {subsection}{\numberline {1.1}Overview}{3}
+\contentsline {subsection}{\numberline {1.2}Optimization Algorithm}{3}
+\contentsline {section}{\numberline {2}Data Structures}{5}
+\contentsline {section}{\numberline {3}Construction of the Predicate Order Graph}{6}
+\contentsline {subsection}{\numberline {3.1}pog}{6}
+\contentsline {subsection}{\numberline {3.2}partition}{7}
+\contentsline {subsection}{\numberline {3.3}pog2}{8}
+\contentsline {subsection}{\numberline {3.4}newNodes}{8}
+\contentsline {subsection}{\numberline {3.5}copyPart}{8}
+\contentsline {subsection}{\numberline {3.6}newEdges}{10}
+\contentsline {subsection}{\numberline {3.7}findRel}{10}
+\contentsline {subsection}{\numberline {3.8}copyEdges}{11}
+\contentsline {subsection}{\numberline {3.9}writeEdgeList}{12}
+\contentsline {section}{\numberline {4}Managing the Graph in Memory}{12}
+\contentsline {subsection}{\numberline {4.1}Storing and Deleting Nodes and Edges}{12}
+\contentsline {subsection}{\numberline {4.2}Writing Nodes and Edges}{13}
+\contentsline {section}{\numberline {5}Rule-Based Translation of Selections and Joins }{13}
+\contentsline {subsection}{\numberline {5.1}Precise Notation for Input}{13}
+\contentsline {subsubsection}{\numberline {5.1.1}The Source Language }{13}
+\contentsline {subsubsection}{\numberline {5.1.2}The Target Language}{16}
+\contentsline {subsubsection}{\numberline {5.1.3}Converting Plans to Atoms and Writing them.}{18}
+\contentsline {subsection}{\numberline {5.2}Optimization Rules}{24}
+\contentsline {subsubsection}{\numberline {5.2.1}Translation of the Arguments of an Edge of the POG}{24}
+\contentsline {subsubsection}{\numberline {5.2.2}Translation of Selections}{25}
+\contentsline {subsubsection}{\numberline {5.2.3}Translation of Joins}{26}
+\contentsline {section}{\numberline {6}Creating Query Plan Edges}{29}
+\contentsline {section}{\numberline {7}Assigning Sizes and Selectivities to the Nodes and Edges of the POG}{30}
+\contentsline {subsection}{\numberline {7.1}Assigning Sizes and Selectivities}{30}
+\contentsline {section}{\numberline {8}Computing Edge Costs for Plan Edges}{32}
+\contentsline {subsection}{\numberline {8.1}The Costs of Terms}{32}
+\contentsline {subsubsection}{\numberline {8.1.1}Arguments}{32}
+\contentsline {subsubsection}{\numberline {8.1.2}Operators}{32}
+\contentsline {subsection}{\numberline {8.2}Creating Cost Edges}{35}
+\contentsline {section}{\numberline {9}Finding Shortest Paths = Cheapest Plans}{36}
+\contentsline {subsection}{\numberline {9.1}Shortest Path Algorithm by Dijkstra}{36}
+\contentsline {subsection}{\numberline {9.2}Interface {\em Boundary\/}}{40}
+\contentsline {subsection}{\numberline {9.3}Constructing the Plan from the Shortest Path}{41}
+\contentsline {subsection}{\numberline {9.4}Computing the Best Plan for a Given Predicate Order Graph}{42}
+\contentsline {section}{\numberline {10}A Larger Example}{42}
+\contentsline {section}{\numberline {11}A User Level Language}{44}
+\contentsline {subsection}{\numberline {11.1}The Language}{44}
+\contentsline {subsection}{\numberline {11.2}Structure}{46}
+\contentsline {subsection}{\numberline {11.3}Schema Lookup}{47}
+\contentsline {subsubsection}{\numberline {11.3.1}Tables}{47}
+\contentsline {subsubsection}{\numberline {11.3.2}Looking up Relation and Attribute Names}{48}
+\contentsline {subsubsection}{\numberline {11.3.3}Modification of the From-Clause}{49}
+\contentsline {subsubsection}{\numberline {11.3.4}Modification of the Select-Clause}{50}
+\contentsline {subsubsection}{\numberline {11.3.5}Modification of the Where-Clause}{52}
+\contentsline {subsubsection}{\numberline {11.3.6}Check the Spelling of Relation and Attribute Names}{54}
+\contentsline {subsubsection}{\numberline {11.3.7}Examples}{54}
+\contentsline {subsection}{\numberline {11.4}Translating a Query to a Plan}{55}
+\contentsline {subsubsection}{\numberline {11.4.1}Integration with Optimizer}{59}
+\contentsline {subsubsection}{\numberline {11.4.2}Examples}{60}
+\contentsline {section}{\numberline {12}Optimizing and Calling Secondo}{64}

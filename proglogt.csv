@@ -1,0 +1,125 @@
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+'list objects'
+
+
+'list objects'
+
+'open database opt'
+
+'query Staedte feed filter[.Bev > 500000] head[3] consume'
+
+'query Staedte'
+
+'list objects'
+
+'query Staedte  count '
+
+'query Staedte  tuplesize '
+
+'let Staedte_sample = Staedte sample[1000, 0.0001] consume'
+
+'query Staedte_sample  feed  filter[(.Bev > 500000)]  count '
+
+'query Staedte  feed  filter[(.Bev > 500000)]  consume '
+
+'query Staedte_sample  feed  filter[(.Bev > 600000)]  count '
+
+0;5;6;1,69;0;100,00;
+
+'query Staedte  feed  filter[(.Bev > 600000)]  project[SName, Bev]  consume '
+
+'query Staedte  feed  count '
+
+'query Staedte_sample  feed  filter[(.Bev > 650000)]  count '
+
+'query Staedte  feed  filter[(.Bev > 650000)]  project[SName, Bev]  consume '
+
+'query Staedte  feed  filter[(.Bev > 600000)]  project[SName, Bev]  consume '
+
+'list objects'
+
+'query Orte  count '
+
+'query Orte  tuplesize '
+
+'let Orte_sample = Orte sample[1000, 0.0001] consume'
+
+'query Orte_sample  feed  filter[(.BevT > 300)]  count '
+
+'query Orte  feed  filter[(.BevT > 300)]  project [Ort] consume'
+
+'query Staedte_sample  feed  filter[(.Bev > 700000)]  count '
+
+'list objects'
+
+'list objects'
+
+'query Staedte_sample  feed  filter[(.Bev > 60000)]  count '
+
+0;55;6;33,90;0;100,00;
+
+'query Staedte  feed  filter[(.Bev > 60000)]  consume '
+
+'query Staedte  feed  count '
+
+'query Staedte  feed  filter[(.Bev > 60000)]  count '
+
+
+'open database opt'
+
+
+'open database opt'
+
+'open database opt'
+
+
+
